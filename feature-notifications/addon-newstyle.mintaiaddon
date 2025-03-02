@@ -1,0 +1,23 @@
+# addon-notifications.mintaiaddon
+
+from PyQt5.QtWidgets import QMessageBox
+
+def show_notification(title, message):
+    msg_box = QMessageBox()
+    msg_box.setIcon(QMessageBox.Information)
+    msg_box.setWindowTitle(title)
+    msg_box.setText(message)
+    msg_box.setStandardButtons(QMessageBox.Ok)
+    msg_box.exec_()
+
+def main():
+    app = QApplication.instance()
+    if app is not None:
+        app.main_window = app.activeWindow()
+        show_notification("Willkommen", "Willkommen zum MINT AI Launcher!")
+    else:
+        print("QApplication instance not found")
+
+if __name__ == "__main__":
+    main()
+
