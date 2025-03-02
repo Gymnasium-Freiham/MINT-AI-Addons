@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addon App Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .addon {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .addon h2 {
+            margin-top: 0;
+        }
+        .addon button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .addon button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Addon App Store</h1>
+    <div class="addon">
+        <h2>Blackbig</h2>
+        <p>Ein dunkles Theme für MINT AI.</p>
+        <button onclick="installAddon('https://raw.githubusercontent.com/Gymnasium-Freiham/MINT-AI-Addons/refs/heads/main/style-blackbig/addon-newstyle.mintaiaddon')">Installieren</button>
+    </div>
+    <div class="addon">
+        <h2>Blueforever</h2>
+        <p>Ein blaues Theme für MINT AI.</p>
+        <button onclick="installAddon('https://raw.githubusercontent.com/Gymnasium-Freiham/MINT-AI-Addons/refs/heads/main/style-blueforever/addon-newstyle.mintaiaddon')">Installieren</button>
+    </div>
+    <!-- Weitere Addons hier hinzufügen -->
+    <script>
+        function installAddon(url) {
+            window.location.href = 'mintai://install-addon?url=' + encodeURIComponent(url);
+        }
+    </script>
+</body>
+</html>
+
