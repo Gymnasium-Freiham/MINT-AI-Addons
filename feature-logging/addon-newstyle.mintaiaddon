@@ -1,0 +1,25 @@
+# addon-logging.mintaiaddon
+
+import logging
+
+def setup_logging():
+    logging.basicConfig(filename="launcher.log", level=logging.INFO, format="%(asctime)s - %(message)s")
+    logging.info("Launcher gestartet.")
+
+def log_action(action):
+    logging.info(action)
+
+def main():
+    app = QApplication.instance()
+    if app is not None:
+        setup_logging()
+        app.main_window = app.activeWindow()
+        app.main_window.start_button.clicked.connect(lambda: log_action("Start button clicked"))
+        app.main_window.update_button.clicked.connect(lambda: log_action("Update button clicked"))
+        app.main_window.exit_button.clicked.connect(lambda: log_action("Exit button clicked"))
+    else:
+        print("QApplication instance not found")
+
+if __name__ == "__main__":
+    main()
+
