@@ -1,0 +1,46 @@
+
+from PyQt5.QtGui import QPalette, QColor, QFont
+from PyQt5.QtWidgets import QApplication, QPushButton, QLabel, QLineEdit
+
+def apply_new_style(app):
+    palette = app.palette()
+    palette.setColor(QPalette.Window, QColor("#239d16"))
+    palette.setColor(QPalette.WindowText, QColor("#044607"))
+    app.setPalette(palette)
+
+    font = QFont("Ubuntu", 14)
+    app.setFont(font)
+
+    app.setStyleSheet("""
+        QPushButton {
+            background-color: #efe799;
+            color: #d6bd9e;
+            border: 1px solid #5ae1d6;
+            padding: 1px;
+            margin: 1px;
+        }
+        QLabel {
+            background-color: #473f27;
+            color: #ee5502;
+            border: 1px solid #5ae1d6;
+            padding: 1px;
+            margin: 1px;
+        }
+        QLineEdit {
+            background-color: #e9141f;
+            color: #8261d5;
+            border: 1px solid #5ae1d6;
+            padding: 1px;
+            margin: 1px;
+        }
+    """)
+
+def main():
+    app = QApplication.instance()
+    if app is not None:
+        apply_new_style(app)
+    else:
+        print("QApplication instance not found")
+
+if __name__ == "__main__":
+    main()
